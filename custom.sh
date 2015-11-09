@@ -1,6 +1,6 @@
 #!/bin/sh
  
-alias ls='ls -lh'
+alias ls='ls -lh --color=auto'
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
 
@@ -91,14 +91,14 @@ Jobs="\j"
 Host="\h"
 User="\u"
 
-export PS1="$BIYellow $User@$Host:$Yellow$PathShort $Color_Off $NewLine\$ "; 
+export PS1="$BIYellow $User@$Host:$Yellow$PathShort $green $NewLine\$ "; 
 
 # This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
 
 
 if [ $(id -u) -eq 0 ]; then #Root user
-	export PS1="$BIRed $User@$Host:$Yellow$PathShort $Color_Off $NewLine\$ "; 
+	export PS1="$BIRed $User@$Host:$Yellow$PathShort $Color_off $NewLine\$ "; 
 else
 if [ -f /usr/bin/git-prompt.sh ];  then
 	source /usr/bin/git-prompt.sh

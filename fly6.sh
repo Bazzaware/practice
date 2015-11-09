@@ -1,9 +1,7 @@
 #!/bin/bash
 
-cd /home/bazza/git-repos/practice/
-sourcefolder=*/
 
-#sourcefolder="/run/media/bazza/Fly6/DCIM/"
+sourcefolder="/run/media/bazza/Fly6/DCIM/"
 destfolder="$HOME/Videos/fly6"
 
 #Functions
@@ -14,11 +12,14 @@ then
 	exit 1
 fi
 }
-#checkfolder "$sourcefolder"
-#checkfolder "$destfolder" 
-for folder in $sourcefolder ; do
-       	for file in $folder*.mkv ; do
-       		newfile=$file | awk '{split($0,a,"/"); print a[1]"-"a[2]}'
-		echo "$newfile "
-	done       
-done       
+checkfolder "$sourcefolder"
+checkfolder "$destfolder" 
+
+rsync -rv $sourcefolder $desstfolder
+
+#for folder in $sourcefolder ; do
+       	#for file in $folder*.mkv ; do
+       	#	newfile=$file | awk '{split($0,a,"/"); print a[1]"-"a[2]}'
+	#	echo "$newfile "
+	#done       
+#done       
