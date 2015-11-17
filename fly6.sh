@@ -15,7 +15,7 @@ fi
 checkfolder "$sourcefolder"
 checkfolder "$destfolder" 
 
-rsync -rv $sourcefolder $desstfolder
+rsync --ignore-existing  --update -raz --progress $sourcefolder $desstfolder
 
 #for folder in $sourcefolder ; do
        	#for file in $folder*.mkv ; do
